@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+       _          _ _     _      _           _ _     _
+  ___ | |__   ___| (_)___| | __ | |__  _   _(_) | __| |
+ / _ \| '_ \ / _ \ | / __| |/ / | '_ \| | | | | |/ _` | '__|
+| (_) | |_) |  __/ | \__ \   <  | |_) | |_| | | | (_| | |
+ \___/|_.__/ \___|_|_|___/_|\_\ |_.__/ \__,_|_|_|\__,_|_|
+
+  Because ASCII art matters...
+
+  I salute you young h@x0r.
+  I invite you to open the humans.txt file for more info about some cool stuff used to make this app.
+
+  May the source be with you :)
+
+  ~ngryman();
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>obelisk buildr</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="canonical" href="http://ngryman.sh/obelisk-buildr">
+
+    <link href="app.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+	<h1><span>obelisk</span> buildr</h1>
+	<aside id="auth">
+		<button class="login is-hidden"><span>log in</span><span class="icon icon-github"></span></button>
+		<button class="logged is-hidden" title="connected to github"><span class="icon icon-github"></span></button>
+	</aside>
+</header>
+
+<main>
+
+	<div id="buildr">
+		<canvas id="scene"></canvas>
+	</div>
+
+	<div id="palette" class="is-hidden">
+		<button class="red" data-tool="brush" data-value="#c82829">1</button>
+		<button class="orange" data-tool="brush" data-value="#f5871f">2</button>
+		<button class="yellow" data-tool="brush" data-value="#eab700">3</button>
+		<button class="green" data-tool="brush" data-value="#718c00">4</button>
+		<button class="aqua" data-tool="brush" data-value="#3e999f">5</button>
+		<button class="blue" data-tool="brush" data-value="#4271ae">6</button>
+		<button class="purple" data-tool="brush" data-value="#8959a8">7</button>
+		<button class="black" data-tool="brush" data-value="#4d4d4c">8</button>
+		<button class="white is-active" data-tool="brush" data-value="#eeeeee">9</button>
+	</div >
+
+	<div id="overlay" class="is-hidden"></div>
+
+	<div id="notification" class="is-hidden"></div>
+
+	<div id="help" class="pane is-hidden">
+		<ul>
+			<li><p><b>B</b>: Brush tool.</p></li>
+			<li><p><b>E</b>: Erase tool.</p></li>
+			<li><p><b>spacebar</b>: Color palette.</p></li>
+			<li><p><b>←</b>, <b>→</b>: Rotate view.</p></li>
+			<li><p><b>+</b>, <b>-</b>, <b>scroll</b>: Move draw layer up / down.</p></li>
+			<li><p><b>CTRL + Z</b>: Undo.</p></li>
+			<li><p><b>CTRL + S</b>: Save to gist.</p></li>
+			<li><p><b>N</b>: New art.</p></li>
+			<li><p><b>F</b>: Full canvas.</p></li>
+			<li><p><b>H</b>: Toggle this thing.</p></li>
+		</ul>
+	</div>
+
+	<div id="welcome" class="pane is-hidden">
+		<div class="content">
+			<h2>Welcome to obelisk buildr!</h2>
+
+			<p>This little experiment makes use of the great <a target="_blank" href="https://github.com/nosir/obelisk.js">obelisk.js</a> library.</p>
+
+			<ul>
+				<li><p>Everything is driven by shortcuts here, no UI, I'm lazy :)<br>
+					Press <b>H</b> to list all of them.</li>
+
+				<li><p>You can draw on 20 layers of height. Scroll your mouse up or down to adjust elevation.</p></li>
+
+				<li><p>Available tools are brush (<b>B</b>) and erase (<b>E</b>).</p></li>
+
+				<li><p>Press the <b>spacebar</b> to spawn a 9 colors palette. Colors are also
+					accessible form <b>1</b> to <b>9</b>. </p></li>
+
+				<li><p>Rotate the view with <b>←</b> and <b>→</b> arrow keys</p></li>
+
+				<li><p>Your work is automatically saved locally in the browser.<br>
+					Press <b>CTRL + S</b> to save it to a github gist.
+					If you log in, you will be able to fork and edit your own gists.
+					If not, anonymous gists will be created each time you save! So please consider logging in.</p></li>
+
+				<li><p>Press any key to continue...</p></li>
+			</ul>
+		</div>
+	</div>
+
+</main>
+
+<footer>
+	<a href="https://github.com/ngryman/obelisk-builder">Source on <em>Github</em></a> |
+	<a href="http://twitter.com/ngryman">Follow <strong>@ngryman</strong> on <em>Twitter</em></a>
+</footer>
+
+<!-- deps -->
+<script src="libs.js"></script>
+
+<!-- application -->
+<script src="app.js"></script>
+
+<!-- entry point -->
+<script>
+	app.init();
+</script>
+
+<!-- google analytics -->
+<!--<script>-->
+    <!--(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
+        <!--(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
+            <!--m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
+    <!--})(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
+
+    <!--ga('create', 'UA-5779130-7', 'cooldowns.io');-->
+    <!--ga('send', 'pageview');-->
+
+<!--</script>-->
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+#auth button {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	padding: 8px;
+	color: #eee;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+#auth button.is-disabled,
+#auth button:active {
+	color: #999;
+}
+
+#auth button > span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#auth button .icon {
+	margin-left: 10px;
+	font-size: 25px;
+	width: 25px;
+}
+
+#auth button.login {
+	border: 1px solid #444;
+	background: #000;
+}
+
+#auth button.login .icon {
+	text-shadow: 0 0 2px #eee;
+}
+
+#auth button.logged {
+	color: #00B2B2;
+}
+
+#auth button.logged .icon {
+	-webkit-animation: glow 4s linear infinite;
+	animation: glow 4s linear infinite;
+}
+
+#auth button.is-hidden {
+	display: none;
+}
+
+@-webkit-keyframes glow {
+	50% {
+		text-shadow: 0 0 20px #00B2B2;
+	}
+}
+
+@keyframes glow {
+	50% {
+		text-shadow: 0 0 20px #00B2B2;
+	}
+}
+
+/** position fixed on small screens when they are in landscape mode */
+
+@media (orientation: landscape) and (max-height: 400px) {
+	#auth {
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
+}
+@font-face {
+	font-family: Lato;
+	src: url('fonts/lato.woff?92048847') format('woff'),
+		url('fonts/lato.ttf?92048847') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a,
+a:active
+a:visited {
+	color: #eee;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+button {
+	margin: 2px;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+html, body, main {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	min-width: 320px;
+	background-color: #111;
+	color: #eee;
+	font-family: Lato, Arial, sans-serif;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+main {
+	text-align: center;
+}
+
+@media (min-width: 700px) and (min-height: 700px), (min-height: 700px) {
+	main {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+}
+
+#buildr {
+	height: 100%;
+}
+
+#overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .3;
+	transition: opacity 200ms;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+#overlay.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+footer {
+	display: none;
+}
+
+@media (min-width: 700px) and (min-height: 700px), (min-height: 700px) {
+	footer {
+		display: block;
+		position: absolute;
+		bottom: 15px;
+		left: 0;
+		padding: 10px;
+		width: 100%;
+		text-align: center;
+		color: #999;
+	}
+
+	footer a {
+		padding: 6px;
+		color: #999;
+		font-size: 14px;
+		text-decoration: none;
+		text-shadow: 0 0 2px black;
+		border-radius: 4px;
+		transition: all 200ms;
+	}
+
+	footer a:hover {
+		background: black;
+	}
+
+	footer a strong,
+	footer a em {
+		font-style: normal;
+		font-weight: normal;
+		color: #eee;
+	}
+
+	footer a strong {
+		transition: all 200ms 200ms;
+	}
+
+	footer a strong:hover {
+		text-shadow: 0 0 1px #fff;
+	}
+}
+
+header {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	padding: 6px 15px;
+	width: 100%;
+	text-align: justify;
+}
+
+header::after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+header > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header h1 {
+	margin: 0;
+	height: 54px;
+	line-height: 54px;
+	color: #fff;
+	text-align: left;
+	font-weight: 300;
+}
+
+header h1 span {
+	color: #00B2B2;
+}
+
+header h1:before {
+	content: '';
+	display: inline-block;
+	vertical-align: text-top;
+	margin-right: 15px;
+	width: 40px;
+	height: 40px;
+	background-image: url(logo.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 40px;
+	-webkit-animation: doodle 4s linear infinite;
+	animation: doodle 4s linear infinite;
+}
+
+@-webkit-keyframes doodle {
+	25% { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+	75% { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+}
+
+@keyframes doodle {
+	25% { -webkit-transform: rotate(5deg); transform: rotate(5deg); }
+	75% { -webkit-transform: rotate(-5deg); transform: rotate(-5deg); }
+}
+
+/**
+ * hide on small screens when they are in landscape mode
+ *
+ * [1]: using top instead of transform, because we can't have
+ *      position fixed elements in transformed elements. This
+ *      is needed for github auth buttons on small screens.
+ */
+
+@media (orientation: landscape) and (max-height: 400px) {
+	header {
+		top: -70px; /* [1] */
+	}
+}
+#help {
+	top: 25%;
+	left: 0;
+	width: 300px;
+}
+
+#help.is-hidden {
+	opacity: 0;
+	-webkit-transform: translateX(-100%) scale(.8);
+	transform: translateX(-100%) scale(.8);
+}
+@font-face {
+	font-family: fontello;
+	src: url('fonts/fontello.eot?92048847');
+	src: url('fonts/fontello.eot?92048847#iefix') format('embedded-opentype'),
+		url('fonts/fontello.woff?92048847') format('woff'),
+		url('fonts/fontello.ttf?92048847') format('truetype'),
+		url('fonts/fontello.svg?92048847#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	display: inline-block;
+	font-family: fontello;
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+}
+
+.icon-git:before { content: '\e801'; }
+.icon-github:before { content: '\e800'; }
+/**
+ * [1]: fixes blurry text on Chrome because of transform...
+ */
+#notification {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index: 1;
+	width: 100%;
+	max-width: 400px;
+	padding: 5px 40px;
+	color: #fff;
+	font-size: 16px; /* [1] */
+	-webkit-transform: translateX(-50%); /* [1] */
+	transform: translateX(-50%);
+	transition: -webkit-transform 300ms;
+	transition: transform 300ms;
+}
+
+#notification.is-hidden {
+	-webkit-transform: translate(-50%, -200%);
+	transform: translate(-50%, -200%);
+}
+
+#notification a,
+#notification a:active
+#notification a:visited {
+	color: #fff;
+}
+
+#notification[data-type=info] {
+	background-color: #00B2B2;
+}
+
+#notification[data-type=error] {
+	background-color: #c82829;
+}
+#palette {
+	position: fixed;
+	z-index: 1;
+	padding: 5px;
+	width: 200px;
+	background: rgba(17, 17, 17, .9);
+	opacity: 1;
+	text-align: left;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	/*transform: translateX(-50%) translateY(-50%);*/
+	-webkit-backface-visibility: hidden;
+	/*transform: translateX(-50%) translateY(-50%);*/
+	backface-visibility: hidden;
+	border: 1px solid #444;
+	box-shadow: 0 0 0 1px #000, 0 0 15px rgba(0, 0, 0, .5);
+	transition: opacity 100ms, -webkit-transform 100ms;
+	transition: opacity 100ms, transform 100ms;
+}
+
+#palette.is-hidden {
+	opacity: 0;
+	-webkit-transform: scale(.7);
+	transform: scale(.7);
+	pointer-events: none;
+}
+
+#palette button {
+	width: 30px;
+	height: 30px;
+	font-size: 10px;
+}
+
+#palette button.is-active {
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset;
+}
+
+#palette .red {
+	background: linear-gradient(#c82829, rgba(200, 40, 41, 0.80));
+}
+
+#palette .red:active {
+	background: linear-gradient(#af2829, rgba(175, 40, 41, 0.80));
+}
+
+#palette .orange {
+	background: linear-gradient(#f5871f, rgba(245, 135, 31, 0.80));
+}
+
+#palette .orange:active {
+	background: linear-gradient(#c8651f, rgba(200, 104, 31, 0.80));
+}
+
+#palette .yellow {
+	background: linear-gradient(#eab700, rgba(234, 183, 0, 0.80));
+}
+
+#palette .yellow:active {
+	background: linear-gradient(#bd8b00, rgba(189, 147, 0, 0.80));
+}
+
+#palette .green {
+	background: linear-gradient(#718c00, rgba(113, 140, 0, 0.80));
+}
+
+#palette .green:active {
+	background: linear-gradient(#475f00, rgba(71, 95, 0, 0.80));
+}
+
+#palette .aqua {
+	background: linear-gradient(#3e999f, rgba(62, 153, 159, 0.81));
+}
+
+#palette .aqua:active {
+	background: linear-gradient(#396c72, rgba(53, 108, 114, 0.81));
+}
+
+#palette .blue {
+	background: linear-gradient(#4271ae, rgba(66, 113, 174, 0.81));
+}
+
+#palette .blue:active {
+	background: linear-gradient(#404681, rgba(62, 71, 129, 0.81));
+}
+
+#palette .purple {
+	background: linear-gradient(#8959a8, rgba(137, 89, 168, 0.80));
+}
+
+#palette .purple:active {
+	background: linear-gradient(#5c3b7b, rgba(93, 59, 123, 0.80));
+}
+
+#palette .black {
+	background: linear-gradient(#4d4d4c, rgba(77, 77, 76, 0.80));
+}
+
+#palette .black:active {
+	background: linear-gradient(#20201f, rgba(32, 32, 31, 0.80));
+}
+
+#palette .white {
+	background: linear-gradient(#ddd, rgba(221, 221, 221, 0.80));
+}
+
+#palette .white:active {
+	background: linear-gradient(#b0b0b0, rgba(176, 176, 176, 0.80));
+}
+.pane {
+	position: fixed;
+	z-index: 1;
+	padding: 15px 30px;
+	background: rgba(17, 17, 17, .9);
+	border: 1px solid #444;
+	box-shadow: 0 0 0 1px #000, 0 0 15px rgba(0, 0, 0, .5);
+	transition: all 300ms;
+	border-radius: 2px;
+}
+
+.pane h2 {
+	font-weight: 300;
+}
+
+.pane ul {
+	margin-top: 20px;
+	padding-left: 20px;
+}
+
+.pane p {
+	text-align: left;
+}
+
+.pane b {
+	margin: 0 2px;
+	padding: 0 2px;
+	font-weight: 300;
+	color: #000;
+	background: #fff;
+}
+#scene {
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+@media (min-width: 800px) {
+	#scene {
+		width: 800px;
+	}
+}
+#welcome {
+	top: 70px;
+	width: 100%;
+	-webkit-transform: scale(1) rotate(0deg);
+	transform: scale(1) rotate(0deg);
+	transition: all 500ms;
+}
+
+@media (min-width: 500px) and (min-height: 600px) {
+	/**
+	 * [1]: fixes blurry text on Chrome because of transform -50%...
+	 */
+	#welcome {
+		left: 50%;
+		margin-left: -250px; /* [1] */
+		width: 500px;
+	}
+}
+
+@media (min-height: 700px) {
+	#welcome {
+		top: 25%;
+	}
+}
+
+#welcome.is-hidden {
+	opacity: 0;
+	-webkit-transform: scale(0) rotate(720deg);
+	transform: scale(0) rotate(720deg);
+}

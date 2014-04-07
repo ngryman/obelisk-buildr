@@ -183,7 +183,6 @@ function fullCanvas() {
 	var padding = fullCanvased ? '70px' : '0px';
 	document.querySelector('main').style.paddingTop = padding;
 	document.querySelector('main').style.paddingBottom = padding;
-	document.querySelector('#notification').style.top = padding;
 
 	ui.scene.resize();
 

@@ -5,8 +5,7 @@
 <br>
 
 <p>
-  <img width="690" height="224" src="" alt="stores">
-  <br>
+  <img width="722" height="505" src="preview.png" alt="obelisk buildr preview">
 </p>
 
 <br>

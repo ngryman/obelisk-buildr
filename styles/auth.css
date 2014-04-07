@@ -1,0 +1,62 @@
+#auth button {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	padding: 8px;
+	color: #eee;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+#auth button.is-disabled,
+#auth button:active {
+	color: #999;
+}
+
+#auth button > span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#auth button .icon {
+	margin-left: 10px;
+	font-size: 25px;
+	width: 25px;
+}
+
+#auth button.login {
+	border: 1px solid #444;
+	background: #000;
+}
+
+#auth button.login .icon {
+	text-shadow: 0 0 2px #eee;
+}
+
+#auth button.logged {
+	color: #00B2B2;
+}
+
+#auth button.logged .icon {
+	animation: glow 4s linear infinite;
+}
+
+#auth button.is-hidden {
+	display: none;
+}
+
+@keyframes glow {
+	50% {
+		text-shadow: 0 0 20px #00B2B2;
+	}
+}
+
+/** position fixed on small screens when they are in landscape mode */
+
+@media (orientation: landscape) and (max-height: 400px) {
+	#auth {
+		position: fixed;
+		top: 0;
+		right: 0;
+	}
+}

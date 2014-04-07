@@ -1,0 +1,28 @@
+#welcome {
+	top: 70px;
+	width: 100%;
+	transform: scale(1) rotate(0deg);
+	transition: all 500ms;
+}
+
+@media (min-width: 500px) and (min-height: 600px) {
+	/**
+	 * [1]: fixes blurry text on Chrome because of transform -50%...
+	 */
+	#welcome {
+		left: 50%;
+		margin-left: -250px; /* [1] */
+		width: 500px;
+	}
+}
+
+@media (min-height: 700px) {
+	#welcome {
+		top: 25%;
+	}
+}
+
+#welcome.is-hidden {
+	opacity: 0;
+	transform: scale(0) rotate(720deg);
+}

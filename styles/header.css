@@ -1,0 +1,68 @@
+header {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	padding: 6px 15px;
+	width: 100%;
+	text-align: justify;
+}
+
+header::after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+header > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header h1 {
+	margin: 0;
+	height: 54px;
+	line-height: 54px;
+	color: #fff;
+	text-align: left;
+	font-weight: 300;
+}
+
+header h1 span {
+	color: #00B2B2;
+}
+
+header h1:before {
+	content: '';
+	display: inline-block;
+	vertical-align: text-top;
+	margin-right: 15px;
+	width: 40px;
+	height: 40px;
+	background-image: url(logo.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 40px;
+	animation: doodle 4s linear infinite;
+}
+
+@keyframes doodle {
+	25% { transform: rotate(5deg); }
+	75% { transform: rotate(-5deg); }
+}
+
+/**
+ * hide on small screens when they are in landscape mode
+ *
+ * [1]: using top instead of transform, because we can't have
+ *      position fixed elements in transformed elements. This
+ *      is needed for github auth buttons on small screens.
+ */
+
+@media (orientation: landscape) and (max-height: 400px) {
+	header {
+		top: -70px; /* [1] */
+	}
+}

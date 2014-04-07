@@ -1,0 +1,23 @@
+{
+  "name": "obelisk-builder",
+  "version": "0.0.0",
+  "authors": [
+    "ngryman <ngryman@gmail.com>"
+  ],
+  "description": "Builder for obelisk.js.",
+  "keywords": [
+    "obelisk"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ngryman/obelisk-builder",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor"
+  ],
+  "dependencies": {
+    "obelisk.js": "~1.0.2",
+    "loop": "~0.0.1",
+    "reqwest": "~1.1.0"
+  }
+}

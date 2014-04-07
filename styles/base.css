@@ -1,0 +1,75 @@
+@font-face {
+	font-family: Lato;
+	src: url('fonts/lato.woff?92048847') format('woff'),
+		url('fonts/lato.ttf?92048847') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a,
+a:active
+a:visited {
+	color: #eee;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+button {
+	margin: 2px;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+html, body, main {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	min-width: 320px;
+	background-color: #111;
+	color: #eee;
+	font-family: Lato, Arial, sans-serif;
+	user-select: none;
+}
+
+main {
+	text-align: center;
+}
+
+@media (min-width: 700px) and (min-height: 700px), (min-height: 700px) {
+	main {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+}
+
+#buildr {
+	height: 100%;
+}
+
+#overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .3;
+	transition: opacity 200ms;
+	backface-visibility: hidden;
+}
+
+#overlay.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}

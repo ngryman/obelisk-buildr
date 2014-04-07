@@ -1,0 +1,31 @@
+.pane {
+	position: fixed;
+	z-index: 1;
+	padding: 15px 30px;
+	background: rgba(17, 17, 17, .9);
+	border: 1px solid #444;
+	box-shadow: 0 0 0 1px #000, 0 0 15px rgba(0, 0, 0, .5);
+	transition: all 300ms;
+	border-radius: 2px;
+}
+
+.pane h2 {
+	font-weight: 300;
+}
+
+.pane ul {
+	margin-top: 20px;
+	padding-left: 20px;
+}
+
+.pane p {
+	text-align: left;
+}
+
+.pane b {
+	margin: 0 2px;
+	padding: 0 2px;
+	font-weight: 300;
+	color: #000;
+	background: #fff;
+}

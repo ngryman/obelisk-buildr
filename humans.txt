@@ -1,0 +1,22 @@
+/* TEAM */
+Developer: Nicolas Gryman
+Site: http://ngryman.sh
+Github: https://github.com/ngryman
+Email: ngryman@gmail.com
+Twitter: @ngryman
+Location: Montreal, Canada
+
+/* THANKS */
+Thanks to @nosir for his excellent obelisk.js (https://github.com/nosir/obelisk.js).
+
+/* SITE */
+Last update: sometime between 2014 and 2100.
+Standards: HTML5, CSS3, JavaScript, Github API v3
+Components: gulp, browserify, autoprefixer, obelisk.js, loop, raf.js, reqwest
+Software: WebStorm, Chrome Dev Tools
+
+/* WIHL (What I Have Learn) */
+- Github OAuth. I've used the great gatekeeper project (https://github.com/prose/gatekeeper).
+  It runs on Heroku using one dyno.
+- Some isometric maths <3.
+- That I will never choose between front-end or back-end, both are awesome.

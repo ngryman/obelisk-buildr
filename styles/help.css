@@ -1,0 +1,10 @@
+#help {
+	top: 25%;
+	left: 0;
+	width: 300px;
+}
+
+#help.is-hidden {
+	opacity: 0;
+	transform: translateX(-100%) scale(.8);
+}

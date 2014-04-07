@@ -1,0 +1,103 @@
+#palette {
+	position: fixed;
+	z-index: 1;
+	padding: 5px;
+	width: 200px;
+	background: rgba(17, 17, 17, .9);
+	opacity: 1;
+	text-align: left;
+	transform: scale(1);
+	/*transform: translateX(-50%) translateY(-50%);*/
+	backface-visibility: hidden;
+	border: 1px solid #444;
+	box-shadow: 0 0 0 1px #000, 0 0 15px rgba(0, 0, 0, .5);
+	transition: opacity 100ms, transform 100ms;
+}
+
+#palette.is-hidden {
+	opacity: 0;
+	transform: scale(.7);
+	pointer-events: none;
+}
+
+#palette button {
+	width: 30px;
+	height: 30px;
+	font-size: 10px;
+}
+
+#palette button.is-active {
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, .4) inset;
+}
+
+#palette .red {
+	background: linear-gradient(#c82829, rgba(200, 40, 41, 0.80));
+}
+
+#palette .red:active {
+	background: linear-gradient(#af2829, rgba(175, 40, 41, 0.80));
+}
+
+#palette .orange {
+	background: linear-gradient(#f5871f, rgba(245, 135, 31, 0.80));
+}
+
+#palette .orange:active {
+	background: linear-gradient(#c8651f, rgba(200, 104, 31, 0.80));
+}
+
+#palette .yellow {
+	background: linear-gradient(#eab700, rgba(234, 183, 0, 0.80));
+}
+
+#palette .yellow:active {
+	background: linear-gradient(#bd8b00, rgba(189, 147, 0, 0.80));
+}
+
+#palette .green {
+	background: linear-gradient(#718c00, rgba(113, 140, 0, 0.80));
+}
+
+#palette .green:active {
+	background: linear-gradient(#475f00, rgba(71, 95, 0, 0.80));
+}
+
+#palette .aqua {
+	background: linear-gradient(#3e999f, rgba(62, 153, 159, 0.81));
+}
+
+#palette .aqua:active {
+	background: linear-gradient(#396c72, rgba(53, 108, 114, 0.81));
+}
+
+#palette .blue {
+	background: linear-gradient(#4271ae, rgba(66, 113, 174, 0.81));
+}
+
+#palette .blue:active {
+	background: linear-gradient(#404681, rgba(62, 71, 129, 0.81));
+}
+
+#palette .purple {
+	background: linear-gradient(#8959a8, rgba(137, 89, 168, 0.80));
+}
+
+#palette .purple:active {
+	background: linear-gradient(#5c3b7b, rgba(93, 59, 123, 0.80));
+}
+
+#palette .black {
+	background: linear-gradient(#4d4d4c, rgba(77, 77, 76, 0.80));
+}
+
+#palette .black:active {
+	background: linear-gradient(#20201f, rgba(32, 32, 31, 0.80));
+}
+
+#palette .white {
+	background: linear-gradient(#ddd, rgba(221, 221, 221, 0.80));
+}
+
+#palette .white:active {
+	background: linear-gradient(#b0b0b0, rgba(176, 176, 176, 0.80));
+}

@@ -42,8 +42,19 @@ brush.set = function(value) {
  * @param {scene} scene
  */
 brush.click = function(scene) {
-	if (scene.add(color))
-		history.push(scene.remove.bind(scene, scene.selected().clone()));
+
+ 	if ( !app.shiftHandler ){	// DRAW
+
+		if (scene.add(color))
+			history.push(scene.remove.bind(scene, scene.selected().clone()));
+
+	} else {					// ERASE
+
+		if (scene.remove())
+			history.push(scene.add.bind(scene, color, scene.selected().clone() ));
+
+	}
+
 };
 
 /**
@@ -51,12 +62,27 @@ brush.click = function(scene) {
  * @param {scene} scene
  */
 brush.drag = function(scene) {
-	if (scene.add(color)) {
-		if (!history.isSequenced())
-			history.startSequence();
 
-		history.push(scene.remove.bind(scene, scene.selected().clone()));
+	if ( !app.shiftHandler ) {	// DRAW
+
+		if (scene.add(color)) {
+			if (!history.isSequenced())
+				history.startSequence();
+
+			history.push(scene.remove.bind(scene, scene.selected().clone()));
+		}
+
+	} else {	// ERASE
+
+		if (scene.remove()) {
+			if (!history.isSequenced())
+				history.startSequence();
+
+			history.push(scene.add.bind(scene, color, scene.selected().clone() ));
+		}
+
 	}
+
 };
 
 /**

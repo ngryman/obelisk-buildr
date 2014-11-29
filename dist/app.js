@@ -39,6 +39,11 @@ var fullCanvased = false;
 var app = {};
 
 /**
+ *  Shift Detect
+ */
+app.shiftHandler = false;
+
+/**
  *
  */
 app.init = function() {
@@ -98,6 +103,7 @@ function logCurious() {
  */
 function bindShortcuts() {
 	document.addEventListener('keydown', onKeyDown);
+	document.addEventListener('keyup', onKeyUp);
 }
 
 /**
@@ -141,7 +147,7 @@ function save(silent) {
 /**
  * @private
  */
-function persist() {
+function persist( local ) {
 	if (persistLock) return;
 	persistLock = true;
 
@@ -153,6 +159,12 @@ function persist() {
 
 	// saves locally
 	var data = save();
+
+	if ( local ) {
+		console.log(JSON.stringify(data));
+		persistLock = false;
+		return;		
+	}
 
 	// persist to a gist
 	storage.persist(data, function(err, info) {
@@ -239,7 +251,19 @@ function onKeyDown(e) {
 		// ctrl + s
 		case 83:
 			e.preventDefault();
-			if (e.ctrlKey) persist();
+			if (e.ctrlKey) {
+
+				if (e.shiftKey){
+
+					persist( true );
+
+				} else {
+	
+					persist();
+
+				}
+
+			}
 			break;
 
 		// n
@@ -262,6 +286,23 @@ function onKeyDown(e) {
 	// 123456789
 	if (e.keyCode >= 49 && e.keyCode <= 57)
 		tool.use('brush').set(ui.palette.color(e.keyCode - 49));
+
+	// Shift Button Pressed
+	if ( e.keyIdentifier === "Shift" )
+		app.shiftHandler = true;
+
+}
+
+/**
+ * @param {event} e
+ * @private
+ */
+function onKeyUp(e) {
+
+	if ( e.keyIdentifier === "Shift" )
+		// Shift Button Unpressed
+		app.shiftHandler = false;
+
 }
 
 /**
@@ -1044,8 +1085,19 @@ brush.set = function(value) {
  * @param {scene} scene
  */
 brush.click = function(scene) {
-	if (scene.add(color))
-		history.push(scene.remove.bind(scene, scene.selected().clone()));
+
+ 	if ( !app.shiftHandler ){	// DRAW
+
+		if (scene.add(color))
+			history.push(scene.remove.bind(scene, scene.selected().clone()));
+
+	} else {					// ERASE
+
+		if (scene.remove())
+			history.push(scene.add.bind(scene, color, scene.selected().clone() ));
+
+	}
+
 };
 
 /**
@@ -1053,12 +1105,27 @@ brush.click = function(scene) {
  * @param {scene} scene
  */
 brush.drag = function(scene) {
-	if (scene.add(color)) {
-		if (!history.isSequenced())
-			history.startSequence();
 
-		history.push(scene.remove.bind(scene, scene.selected().clone()));
+	if ( !app.shiftHandler ) {	// DRAW
+
+		if (scene.add(color)) {
+			if (!history.isSequenced())
+				history.startSequence();
+
+			history.push(scene.remove.bind(scene, scene.selected().clone()));
+		}
+
+	} else {	// ERASE
+
+		if (scene.remove()) {
+			if (!history.isSequenced())
+				history.startSequence();
+
+			history.push(scene.add.bind(scene, color, scene.selected().clone() ));
+		}
+
 	}
+
 };
 
 /**
@@ -1415,6 +1482,8 @@ palette.init = function() {
 		tool.use(btn.dataset.tool).set(btn.dataset.value);
 
 		active = e.target;
+
+		palette.toggle();
 	});
 };
 

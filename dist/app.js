@@ -1481,6 +1481,8 @@ palette.init = function() {
 		tool.use(btn.dataset.tool).set(btn.dataset.value);
 
 		active = e.target;
+
+		palette.toggle();
 	});
 };
 

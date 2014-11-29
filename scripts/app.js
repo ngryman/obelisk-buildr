@@ -38,6 +38,11 @@ var fullCanvased = false;
 var app = {};
 
 /**
+ *  Shift Detect
+ */
+app.shiftHandler = false;
+
+/**
  *
  */
 app.init = function() {
@@ -97,6 +102,7 @@ function logCurious() {
  */
 function bindShortcuts() {
 	document.addEventListener('keydown', onKeyDown);
+	document.addEventListener('keyup', onKeyUp);
 }
 
 /**
@@ -261,6 +267,23 @@ function onKeyDown(e) {
 	// 123456789
 	if (e.keyCode >= 49 && e.keyCode <= 57)
 		tool.use('brush').set(ui.palette.color(e.keyCode - 49));
+
+	// Shift Button Pressed
+	if ( e.keyIdentifier === "Shift" )
+		app.shiftHandler = true;
+
+}
+
+/**
+ * @param {event} e
+ * @private
+ */
+function onKeyUp(e) {
+
+	if ( e.keyIdentifier === "Shift" )
+		// Shift Button Unpressed
+		app.shiftHandler = false;
+
 }
 
 /**

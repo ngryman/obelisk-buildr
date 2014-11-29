@@ -162,6 +162,7 @@ function persist( local ) {
 
 	if ( local ) {
 		console.log(JSON.stringify(data));
+		persistLock = false;
 		return;		
 	}
 

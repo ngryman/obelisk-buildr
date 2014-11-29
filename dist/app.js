@@ -147,7 +147,7 @@ function save(silent) {
 /**
  * @private
  */
-function persist() {
+function persist( local ) {
 	if (persistLock) return;
 	persistLock = true;
 
@@ -159,6 +159,11 @@ function persist() {
 
 	// saves locally
 	var data = save();
+
+	if ( local ) {
+		console.log(JSON.stringify(data));
+		return;		
+	}
 
 	// persist to a gist
 	storage.persist(data, function(err, info) {
@@ -245,7 +250,19 @@ function onKeyDown(e) {
 		// ctrl + s
 		case 83:
 			e.preventDefault();
-			if (e.ctrlKey) persist();
+			if (e.ctrlKey) {
+
+				if (e.shiftKey){
+
+					persist( true );
+
+				} else {
+	
+					persist();
+
+				}
+
+			}
 			break;
 
 		// n

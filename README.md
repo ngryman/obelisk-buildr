@@ -1,5 +1,7 @@
 # obelisk buildr
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ngryman/obelisk-buildr.svg)](https://greenkeeper.io/)
+
 [![Gittip](http://img.shields.io/gittip/ngryman.svg)](https://www.gittip.com/ngryman/)
 
 <br>

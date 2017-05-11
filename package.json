@@ -11,12 +11,12 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "~3.6.0",
+    "gulp": "~3.9.1",
     "gulp-browserify": "~0.5.0",
-    "gulp-connect": "~1.1.0",
-    "gulp-autoprefixer": "0.0.6",
-    "gulp-concat": "~2.2.0",
-    "gulp-jshint": "~1.5.3",
-    "jshint-stylish": "~0.1.5"
+    "gulp-connect": "~5.0.0",
+    "gulp-autoprefixer": "4.0.0",
+    "gulp-concat": "~2.6.1",
+    "gulp-jshint": "~2.0.4",
+    "jshint-stylish": "~2.2.1"
   }
 }
